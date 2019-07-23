@@ -37,6 +37,8 @@ public class AlarmManagerUtil {
 
     public static void startByMinutes(Context context, Class alarmBroadcast, int minutesToStart) {
         Intent mIntent = new Intent(context, alarmBroadcast);
+        mIntent.putExtra("alarmminute", true);
+
         AlarmManager am = (AlarmManager) context.getSystemService(ALARM_SERVICE);
 
         PendingIntent pi = PendingIntent.getBroadcast(
@@ -57,6 +59,8 @@ public class AlarmManagerUtil {
 
     public static void startByDay(Context context, Class alarmBroadcast, int hourToStart) {
         Intent mIntent = new Intent(context, alarmBroadcast);
+        mIntent.putExtra("alarmday", true);
+
         AlarmManager am = (AlarmManager) context.getSystemService(ALARM_SERVICE);
 
         Calendar calendar = Calendar.getInstance();
@@ -83,6 +87,8 @@ public class AlarmManagerUtil {
 
     public static void startByDay(Context context, Class alarmBroadcast, Calendar calendar) {
         Intent mIntent = new Intent(context, alarmBroadcast);
+        mIntent.putExtra("alarmday", true);
+
         AlarmManager am = (AlarmManager) context.getSystemService(ALARM_SERVICE);
 
         PendingIntent pi = PendingIntent.getBroadcast(

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.master.killercode.broadcast.Utils.Alarm.AlarmManagerUtil;
+import com.master.killercode.broadcast.Utils.Alarm.ProjectAlarms;
 
 import static com.master.killercode.broadcast.Utils.Nortification.NotificationUtils.showNortification;
 
@@ -15,9 +16,10 @@ public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        showNortification(context , 0, "System" , "Boot Completed");
+        showNortification(context, 0, "System", "Boot Completed");
 
         AlarmManagerUtil.checkScreen(context);
+        ProjectAlarms.startAllAlarms(context);
 //        if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
 //        }
 
